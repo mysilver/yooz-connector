@@ -1,0 +1,14 @@
+{
+  "name": "yooz-connector",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mohammad-Ali Yaghoub-Zadeh-Fard",
+  "license": "MIT",
+  "dependencies": {
+    "apibase-client": "^0.1.0"
+  }
+}
