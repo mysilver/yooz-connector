@@ -1,13 +1,14 @@
 var APIBase = require("apibase-client");
 var client = new APIBase({
-    baseUrl: 'http://localhost:3000'
+    baseUrl: 'http://johnsd.cse.unsw.edu.au:3000'
 });
 
-// Yooz SEARCH ID in APIBase
-var YOOZ_API = '70971c8b-c141-4c4c-8a1d-792fb5113493';
+
+var GET_SQL = '70971c8b-c141-4c4c-8a1d-792fb5113493';
 module.exports = function(source, resourceType, cb) {
-  client.invokeOperation(YOOZ_API, source, null, null, function(err, result) {
-  
+  client.invokeOperation(GET_SQL, source, null, null, function(err, result) {
+
+     result = JSON.parse(result.body);
       var searchResults = {};
       searchResults.query = result["q"];
       searchResults.results = [];
@@ -17,6 +18,6 @@ module.exports = function(source, resourceType, cb) {
           x.snippet = arrayItem["snippet"];
           searchResults.results.push(x);
       });
-      cb(err, searchResults); 
+      cb(err, searchResults);
   });
 };
