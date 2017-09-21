@@ -9,14 +9,13 @@ module.exports = function(source, resourceType, cb) {
   client.invokeOperation(YOOZ_API, source, null, null, function(err, result) {
   
       var searchResults = new Object();
-      searchResults.query = result["q"]
-      searchResults.results = []
-      result["results"].forEach( function (arrayItem)
-      {
-          var x = new Object()
-          x.title = arrayItem["title"]
-          x.snippet = arrayItem["snippet"]
-          searchResults.results.push(x)
+      searchResults.query = result["q"];
+      searchResults.results = [];
+      result["results"].forEach( function (arrayItem) {
+          var x = new Object();
+          x.title = arrayItem["title"];
+          x.snippet = arrayItem["snippet"];
+          searchResults.results.push(x);
       }
       cb(err, searchResults); 
   });
